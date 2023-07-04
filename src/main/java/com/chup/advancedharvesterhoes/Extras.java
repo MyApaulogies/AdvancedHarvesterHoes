@@ -55,6 +55,11 @@ public class Extras {
         }
 
         ItemStack harvesterHoe = new ItemStack(Material.DIAMOND_HOE);
+
+        harvesterHoe = NBTEditor.set(harvesterHoe, false, "AutoSellStatus");
+        harvesterHoe = NBTEditor.set(harvesterHoe, 0, "FragMultiplier");
+        harvesterHoe = NBTEditor.set(harvesterHoe, 0, "CustomMultiplier");
+
         harvesterHoe.addUnsafeEnchantment(Enchantment.DURABILITY, 100);
         harvesterHoe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 100);
         ItemMeta harvesterHoeMeta = harvesterHoe.getItemMeta();
@@ -74,11 +79,6 @@ public class Extras {
         harvesterHoeMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         harvesterHoe.setItemMeta(harvesterHoeMeta);
         harvesterHoe.getItemMeta().setLore(harvesterLore);
-        System.out.println(harvesterHoe.getItemMeta().getLore());
-        harvesterHoe = NBTEditor.set(harvesterHoe, false, "AutoSellStatus");
-        harvesterHoe = NBTEditor.set(harvesterHoe, 0, "FragMultiplier");
-        harvesterHoe = NBTEditor.set(harvesterHoe, 0, "CustomMultiplier");
-        System.out.println(harvesterHoe.getItemMeta().getLore());
         return harvesterHoe;
     }
 
