@@ -11,7 +11,8 @@
 
   <name>AdvancedHarvesterHoes</name>
 
-  <description>e</description><properties>
+  <description>e</description>
+  <properties>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
     <java.version>8</java.version>
@@ -72,6 +73,10 @@
           <url>https://repo.codemc.org/repository/maven-public/</url>
           <layout>default</layout>
       </repository>
+      <repository>
+          <id>jitpack.io</id>
+          <url>https://jitpack.io</url>
+      </repository>
   </repositories>
 
   <dependencies>
@@ -86,6 +91,12 @@
           <artifactId>skullcreator</artifactId>
           <version>3.0.1</version>
           <scope>compile</scope>
+      </dependency>
+      <dependency>
+          <groupId>com.github.MilkBowl</groupId>
+          <artifactId>VaultAPI</artifactId>
+          <version>1.7</version>
+          <scope>provided</scope>
       </dependency>
   </dependencies>
 </project>
