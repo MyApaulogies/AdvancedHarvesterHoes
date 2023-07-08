@@ -18,7 +18,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.lang.reflect.Field;
 import java.util.*;
 
 public class CaneListener implements Listener {
@@ -225,13 +224,13 @@ public class CaneListener implements Listener {
                                     if (inventorySpace == -1) {
                                         if (inventoryFull.containsKey(player.getUniqueId())) {
                                             if (inventoryFull.get(player.getUniqueId()) <= System.currentTimeMillis()) {
-                                                Extras.send(player, ChatColor.translateAlternateColorCodes('&', "&c&lInventory Full!"), "", 5, 20, 5);
+                                                Extras.sendTitle(player, ChatColor.translateAlternateColorCodes('&', "&c&lInventory Full!"), "", 5, 20, 5);
                                                 player.playSound(player.getLocation(), XSound.BLOCK_CHEST_CLOSE.parseSound(), 1.0F, 1.0F);
                                                 inventoryFull.put(player.getUniqueId(), System.currentTimeMillis() + 3000);
                                             }
 
                                         } else {
-                                            Extras.send(player, ChatColor.translateAlternateColorCodes('&', "&c&lInventory Full!"), "", 5, 20, 5);
+                                            Extras.sendTitle(player, ChatColor.translateAlternateColorCodes('&', "&c&lInventory Full!"), "", 5, 20, 5);
                                             player.playSound(player.getLocation(), XSound.BLOCK_CHEST_CLOSE.parseSound(), 1.0F, 1.0F);
                                             inventoryFull.put(player.getUniqueId(), System.currentTimeMillis() + 3000);
                                         }
@@ -262,7 +261,7 @@ public class CaneListener implements Listener {
                                     }
                                     if (fragmentAmount > 0) {
                                         if (inventorySpace == -1) {
-                                            Extras.send(player, ChatColor.translateAlternateColorCodes('&', "&c&lInventory Full!"), "", 5, 20, 5);
+                                            Extras.sendTitle(player, ChatColor.translateAlternateColorCodes('&', "&c&lInventory Full!"), "", 5, 20, 5);
                                             player.playSound(player.getLocation(), XSound.BLOCK_CHEST_CLOSE.parseSound(), 1.0F, 1.0F);
                                             String message = plugin.getMessages().getString("found-drop");
                                             player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
@@ -398,7 +397,7 @@ public class CaneListener implements Listener {
                             }
                             if (finalAmount > Config.getLevelBreak(nextLevel) - 1) {
                                 if (Config.getLevelUpMessageStatus() == true) {
-                                    Extras.send(player, ChatColor.translateAlternateColorCodes('&', "&a&lLevel Up!"), ChatColor.translateAlternateColorCodes('&', "&7&o(Level " + nextLevel + ")"), 5, 20, 5);
+                                    Extras.sendTitle(player, ChatColor.translateAlternateColorCodes('&', "&a&lLevel Up!"), ChatColor.translateAlternateColorCodes('&', "&7&o(Level " + nextLevel + ")"), 5, 20, 5);
                                     player.playSound(player.getLocation(), XSound.ENTITY_PLAYER_LEVELUP.parseSound(), 15.0F, 1.0F);
                                 }
                                 itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', sugarcaneNameColor + "&lHarvester Hoe") + ChatColor.GRAY + " (Level " + nextLevel + ")");
